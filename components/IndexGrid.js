@@ -14,9 +14,9 @@ const IndexGrid = () => (
     <Grid.Row>
     <Grid.Column width={4}>
     </Grid.Column>
-    <Grid.Column width={6}>
+    <Grid.Column width={7}>
     </Grid.Column>
-    <Grid.Column width={4}>
+    <Grid.Column width={3}>
       <Menu/>
     </Grid.Column>
     </Grid.Row>

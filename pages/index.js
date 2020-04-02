@@ -9,12 +9,22 @@ export default function index () {
 
   const segmentOneStyle = {
     padding: '18em 0',
-    margin: '0'
+    margin: '0',
+    backgroundColor: 'black',
+    color: 'white'
+  }
+
+  const segmentTwoStyle = {
+    padding: '15em 0',
+    margin: '0',
+    backgroundColor: 'black',
+    color: 'white'
   }
 
   return (
     <div>
-      <Segment style={segmentOneStyle} basic inverted>
+
+      <Segment style={segmentOneStyle} basic>
         <Grid centered columns={2}>
           <Grid.Row>
             <Grid.Column width={7}>
@@ -32,7 +42,8 @@ export default function index () {
           </Grid.Row>
         </Grid>
       </Segment>
-      <Segment style={segmentOneStyle} basic inverted>
+
+      <Segment style={segmentTwoStyle} basic>
         <Grid centered columns={2}>
           <Grid.Row>
             <Grid.Column width={7}>
