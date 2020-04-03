@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Accordion, Menu, Image, Container, Segment } from 'semantic-ui-react'
+import { Accordion, Menu, Image, Segment } from 'semantic-ui-react'
 
 const menuHeaderStyle = {
   backgroundColor: 'black',
@@ -9,11 +9,18 @@ const menuHeaderStyle = {
 }
 
 export default class MenuVert extends Component {
-  state = { activeItem: 'Bio' }
-  state = { activeIndex: 0 }
+  state = { 
+    activeItem: 'Bio',
+    activeIndex: '' 
+  }
+
+  componentDidMount(){
+    window.addEventListener('scroll', this.handleScroll, false)
+  }
 
   handleItemClick = (e, { name }) => {
-    this.setState({ activeItem: name })
+    let element = document.getElementsByClassName(name)[0];
+    element.scrollIntoView({behavior: 'smooth'});
   }
 
   handleAccordionClick = (e, titleProps) => {
@@ -24,12 +31,42 @@ export default class MenuVert extends Component {
     this.setState({ activeIndex: newIndex })
   }
 
+  
+  handleScroll = () => {
+    let introNode = { node:document.getElementsByClassName('Intro'), name:'Intro' }
+    let animalNode = { node:document.getElementsByClassName('Animals'), name:'Animals' }
+    let programmingNode = { node:document.getElementsByClassName('Programming'), name:'Programming' }
+    let projectsNode = { node:document.getElementsByClassName('Projects'), name:'Projects' }
+    let connectNode = { node:document.getElementsByClassName('Connect'), name:'Connect' }
+    let menuArray = [introNode, animalNode, programmingNode, projectsNode, connectNode]
+
+    menuArray.map(e => {
+      let nodeScrollSize = e.node[0].offsetTop + e.node[0].scrollHeight 
+      if(e.node[0].offsetTop - 300 <= window.scrollY && window.scrollY <= nodeScrollSize ) {
+        this.setState({ activeItem: e.name })
+        if(e.name == 'Intro' || e.name == 'Animals' || e.name == 'Programming'){
+          this.setState({ activeIndex: 0 })
+        }
+      }
+    })
+
+    //let elementScroll = document.getElementsByClassName(name)[0].scrollTop
+    //if(currentScroll == elementScroll) {
+    //  this.setState({ activeItem: name });
+    //}
+  }
+
   render() {
     const { activeItem } = this.state
     const { activeIndex } = this.state
 
     const BioContent = (
       <Menu.Menu>
+        <Menu.Item
+          name='Intro'
+          active={activeItem === 'Intro'}
+          onClick={this.handleItemClick}
+        />
         <Menu.Item
           name='Animals'
           active={activeItem === 'Animals'}
@@ -92,7 +129,14 @@ export default class MenuVert extends Component {
               margin: 0 0 0 -2px;
             }
             .ui.vertical.menu .item>i.icon {
-              transform: scaleX(-1),
+              transform: scaleX(-1);
+            }
+            .ui.accordion:not(.styled) .accordion .title~.content:not(.ui), .ui.accordion:not(.styled) .title~.content:not(.ui) {
+              padding: 0;
+              text-indent: 18px;
+            }
+            .ui.secondary.pointing.menu .dropdown.item:active, .ui.secondary.pointing.menu .link.item:active, .ui.secondary.pointing.menu a.item:active {
+              border-color: grey;
             }
           `}
         </style>
