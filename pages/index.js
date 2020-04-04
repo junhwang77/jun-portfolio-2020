@@ -1,5 +1,6 @@
 import IndexGrid from '../components/IndexGrid';
 import { useEffect, useRef } from 'react';
+import Plx from 'react-plx'
 
 import { 
   Container,
@@ -10,10 +11,10 @@ import {
 export default function index () {
 
   const segIntroStyle = {
-    padding: '18em 0',
+    padding: '12em 0',
     margin: '0',
     backgroundColor: 'black',
-    color: 'white'
+    color: 'white',
   }
 
   const segAnimStyle = {
@@ -29,7 +30,7 @@ export default function index () {
     backgroundColor: 'black',
     color: 'white'
   }
-  
+
   return (
     <div className='docBody'>
       <Segment style={segIntroStyle} className='Intro' basic>
@@ -39,7 +40,7 @@ export default function index () {
             </Grid.Column>
             <Grid.Column width={6}>
               <Container>
-                <h1>Introduction</h1>
+                <h1 style={{fontSize:'85px'}}>Hi! My name is Jun.</h1>
                 <h4>
                   Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
                   ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
@@ -146,6 +147,7 @@ export default function index () {
           </Grid.Row>
         </Grid>
       </Segment>
+
       <IndexGrid/>
     </div>
   );
