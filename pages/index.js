@@ -21,7 +21,17 @@ export default function index () {
     padding: '11em 0',
     margin: '0',
     color: 'white',
-    zIndex: 10
+    zIndex: 9
+  }
+
+  const segBgStyle = {
+    position: 'fixed',
+    width: '100%',
+    height: '100%',
+    margin: '0',
+    zIndex: 6,
+    backgroundColor: 'black',
+    opacity: 0
   }
 
   const imageStyle = {
@@ -30,8 +40,8 @@ export default function index () {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    height: '100vh',
-    width: '100vw',
+    height: '100%',
+    width: '100%',
     zIndex: 5,
     borderRadius: 0,
     border: 0,
@@ -44,7 +54,6 @@ export default function index () {
     height: '100%',
     width: '100%',
     zIndex: 6,
-    opacity: 0
   }
 
   const segAnimStyle = {
@@ -71,13 +80,18 @@ export default function index () {
           parallaxData={ [
             {
               start: 500,
-              duration: 300,
+              duration: 500,
               name: 'introAnimation',
               properties: [
                 {
                   startValue: 1,
                   endValue: 0,
                   property: 'opacity'
+                },
+                {
+                  startValue: 0,
+                  endValue: -300,
+                  property: 'translateY'
                 }
               ],
             },
@@ -102,32 +116,52 @@ export default function index () {
         </Plx>
       </Segment>
       
-      <Plx>
-        <Segment style={imageStyle}/>
+      <Plx
+        style={imageStyle}
+        className='segImageStyle'
+        animateWhenNotInViewport={ true }
+        parallaxData={ [
+          {
+            start: 1000,
+            duration: 300,
+            name: 'imgAnimation',
+            properties: [
+              {
+                startValue: 0,
+                endValue: -434,
+                property: 'translateX'
+              }
+            ],
+          },
+        ] }
+      >
       </Plx>
 
-      <Segment style={segIntroStyle}>
-        <Plx
-          className='bgPlx'
-          animateWhenNotInViewport={ true }
-          parallaxData={ [
-            {
-              start: 500,
-              duration: 300,
-              name: 'bgAnimation',
-              properties: [
-                {
-                  startValue: 0,
-                  endValue: 1,
-                  property: 'opacity'
-                }
-              ],
-            },
-          ] }
-        >
-          <div class="blackBg" style={blackBgStyle}/>
-        </Plx>
-      </Segment>
+      <Plx
+        style={segBgStyle}
+        className='segBgStyle'
+        animateWhenNotInViewport={ true }
+        parallaxData={ [
+          {
+            start: 0,
+            duration: 500,
+            name: 'bgAnimation',
+            properties: [
+              {
+                startValue: 0,
+                endValue: 1,
+                property: 'opacity'
+              },
+              {
+                startValue: 0,
+                endValue: 300,
+                property: 'translateX'
+              }
+            ],
+          },
+        ] }
+      >
+      </Plx>
 
       <IndexGrid/>
 

@@ -7,7 +7,7 @@ const gridStyle = {
   right: 0,
   top: '20vh',
   width: '100%',
-  zIndex: 9
+  zIndex: 10
 }
 
 const IndexGrid = () => (
