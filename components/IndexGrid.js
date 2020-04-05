@@ -1,18 +1,13 @@
 import React from 'react'
 import { Grid, Image } from 'semantic-ui-react'
-import Menu from '../components/Menu'
+import PlxMenu from './PlxMenu'
 
 const gridStyle = {
   position: 'fixed',
   right: 0,
   top: '20vh',
-  width: '100%'
-}
-
-const imgStyle = {
-  position: 'fixed',
-  top: '170px',
-  width: 'inherit',
+  width: '100%',
+  zIndex: 9
 }
 
 const IndexGrid = () => (
@@ -23,7 +18,7 @@ const IndexGrid = () => (
       <Grid.Column width={7}>
       </Grid.Column>
       <Grid.Column width={3}>
-        <Menu/>
+        <PlxMenu/>
       </Grid.Column>
     </Grid.Row>
   </Grid>
