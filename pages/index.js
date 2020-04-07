@@ -18,12 +18,12 @@ export default function index () {
   const[oneThirdWidth, setOneThirdWidth] = useState(0)
 
   useEffect(()=>{
-    const adjustBgWidth = () => {
+    const dynamicBgWidth = () => {
       console.log('resized?')
       setOneThirdWidth(window.innerWidth/3)
     }
-    adjustBgWidth()
-    window.addEventListener('resize', adjustBgWidth)
+    dynamicBgWidth()
+    window.addEventListener('resize', dynamicBgWidth)
 
   })
 
@@ -96,6 +96,24 @@ export default function index () {
     left: 'calc(100vw/-3)'
   }
 
+  const codingImageStyle = {
+    position: 'fixed',
+    backgroundImage: "url('web-portfolio-png/coding-image.jpg')",
+    backgroundPosition: '-328px',
+    backgroundSize: '291%',
+    backgroundRepeat: 'no-repeat',
+    height: '100%',
+    width: 'calc(100vw/3)',
+    zIndex: 5,
+    borderRadius: 0,
+    border: 0,
+    boxSizing: 'content-box',
+    left: 'calc(100vw/-3)'
+  }
+
+  const animalStartTime = 1000;
+  const codingStartTime = 3000;
+
   return (
     <div className='docBody' style={docBodyStyle}>
       
@@ -105,13 +123,25 @@ export default function index () {
         animateWhenNotInViewport={ true }
         parallaxData={ [
           {
-            start: 1000,
+            start: animalStartTime,
             duration: 300,
             name: 'imgAnimation',
             properties: [
               {
                 startValue: 0,
                 endValue: 100,
+                property: 'translateX'
+              }
+            ],
+          },
+          {
+            start: codingStartTime,
+            duration: 500,
+            name: 'imgAnimation',
+            properties: [
+              {
+                startValue: 100,
+                endValue: 100 + oneThirdWidth,
                 property: 'translateX'
               }
             ],
@@ -126,7 +156,40 @@ export default function index () {
         animateWhenNotInViewport={ true }
         parallaxData={ [
           {
-            start: 1000,
+            start: animalStartTime,
+            duration: 500,
+            name: 'imgAnimation',
+            properties: [
+              {
+                startValue: 0,
+                endValue: oneThirdWidth,
+                property: 'translateX'
+              }
+            ],
+          },
+          {
+            start: codingStartTime,
+            duration: 500,
+            name: 'imgAnimation',
+            properties: [
+              {
+                startValue: oneThirdWidth,
+                endValue: oneThirdWidth * 2,
+                property: 'translateX'
+              }
+            ],
+          },
+        ] }
+      >
+      </Plx>
+
+      <Plx
+        style={codingImageStyle}
+        className='codingImage'
+        animateWhenNotInViewport={ true }
+        parallaxData={ [
+          {
+            start: codingStartTime,
             duration: 500,
             name: 'imgAnimation',
             properties: [
@@ -153,13 +216,13 @@ export default function index () {
             properties: [
               {
                 startValue: 0,
-                endValue: 0.7,
+                endValue: 0.8,
                 property: 'opacity'
               },
             ],
           },
           {
-            start: 1000,
+            start: animalStartTime,
             duration: 500,
             name: 'bgAnimation',
             properties: [
@@ -209,7 +272,7 @@ export default function index () {
         animateWhenNotInViewport={ true }
         parallaxData={ [
           {
-            start: 1000,
+            start: animalStartTime,
             duration: 500,
             name: 'AnimalAnimation',
             properties: [
@@ -253,9 +316,9 @@ export default function index () {
         animateWhenNotInViewport={ true }
         parallaxData={ [
           {
-            start: 3000,
+            start: codingStartTime,
             duration: 500,
-            name: 'AnimalAnimation',
+            name: 'CodingAnimation',
             properties: [
               {
                 startValue: 0,
