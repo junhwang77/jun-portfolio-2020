@@ -1,27 +1,60 @@
-import IndexGrid from '../components/IndexGrid';
-import { useEffect, useRef } from 'react';
-import Plx from 'react-plx'
+import {useState,useEffect} from 'react';
+import Plx from 'react-plx';
 import { 
   Container,
   Segment,
   Image,
   Grid,
  } from 'semantic-ui-react';
+import IndexGridMenu from '../components/IndexGridMenu';
+import IntroContent from '../components/GridContent/IntroContent';
+import AnimalContent from '../components/GridContent/AnimalContent';
+import CodingContent from '../components/GridContent/CodingContent';
+import ProjectsContent from '../components/GridContent/ProjectsContent';
+import ConnectContent from '../components/GridContent/ConnectContent';
 
 export default function index () {
 
+  const[oneThirdWidth, setOneThirdWidth] = useState(0)
+
+  useEffect(()=>{
+    const adjustBgWidth = () => {
+      console.log('resized?')
+      setOneThirdWidth(window.innerWidth/3)
+    }
+    adjustBgWidth()
+    window.addEventListener('resize', adjustBgWidth)
+
+  })
+
   const docBodyStyle = {
-    height: '5000px'
+    height: 'auto'
   }
 
-  const segIntroStyle = {
+  const introStyle = {
     position: 'fixed',
     width: '100%',
-    height: '100vh',
+    height: '100%',
     padding: '11em 0',
-    margin: '0',
+    margin: 0,
     color: 'white',
     zIndex: 9
+  }
+
+  const contentStyle = {
+    position: 'fixed',
+    width: '100%',
+    height: '100%',
+    padding: '11em 0',
+    margin: 0,
+    color: 'white',
+    zIndex: 9,
+    opacity: 0
+  }
+
+  const scrollSpaceStyle = {
+    margin: 0,
+    height: '1700px'
   }
 
   const segBgStyle = {
@@ -34,7 +67,7 @@ export default function index () {
     opacity: 0
   }
 
-  const imageStyle = {
+  const mainImageStyle = {
     position: 'fixed',
     backgroundImage: "url('web-portfolio-png/mainPic.jpg')",
     backgroundPosition: 'center',
@@ -48,77 +81,27 @@ export default function index () {
     boxSizing: 'content-box'
   }
 
-  const blackBgStyle = {
+  const animalImageStyle = {
     position: 'fixed',
-    backgroundColor: 'black',
+    backgroundImage: "url('web-portfolio-png/profile_pic.jpg')",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
     height: '100%',
-    width: '100%',
-    zIndex: 6,
-  }
-
-  const segAnimStyle = {
-    padding: '15em 0',
-    margin: '0',
-    backgroundColor: 'black',
-    color: 'white'
-  }
-
-  const segProgStyle = {
-    padding: '15em 0 22em',
-    margin: '0',
-    backgroundColor: 'black',
-    color: 'white'
+    width: 'calc(100vw/3)',
+    zIndex: 5,
+    borderRadius: 0,
+    border: 0,
+    boxSizing: 'content-box',
+    left: 'calc(100vw/-3)'
   }
 
   return (
     <div className='docBody' style={docBodyStyle}>
-
-      <Segment style={segIntroStyle} className='Intro' basic>
-        <Plx
-          className='introPlx'
-          animateWhenNotInViewport={ true }
-          parallaxData={ [
-            {
-              start: 500,
-              duration: 500,
-              name: 'introAnimation',
-              properties: [
-                {
-                  startValue: 1,
-                  endValue: 0,
-                  property: 'opacity'
-                },
-                {
-                  startValue: 0,
-                  endValue: -300,
-                  property: 'translateY'
-                }
-              ],
-            },
-          ] }
-        >
-          <Grid centered columns={3}>
-            <Grid.Row>
-              <Grid.Column width={6}>
-                <Container>
-                  <h1 style={{fontSize:'85px'}}>Hi! My name is Jun.</h1>
-                  <h4>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                    ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-                    ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-                    quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-                  </h4>
-                </Container>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Plx>
-      </Segment>
       
       <Plx
-        style={imageStyle}
-        className='segImageStyle'
+        style={mainImageStyle}
+        className='mainImage'
         animateWhenNotInViewport={ true }
         parallaxData={ [
           {
@@ -128,7 +111,28 @@ export default function index () {
             properties: [
               {
                 startValue: 0,
-                endValue: -434,
+                endValue: 100,
+                property: 'translateX'
+              }
+            ],
+          },
+        ] }
+      >
+      </Plx>
+
+      <Plx
+        style={animalImageStyle}
+        className='animalImage'
+        animateWhenNotInViewport={ true }
+        parallaxData={ [
+          {
+            start: 1000,
+            duration: 500,
+            name: 'imgAnimation',
+            properties: [
+              {
+                startValue: 0,
+                endValue: oneThirdWidth,
                 property: 'translateX'
               }
             ],
@@ -139,7 +143,7 @@ export default function index () {
 
       <Plx
         style={segBgStyle}
-        className='segBgStyle'
+        className='blackBg'
         animateWhenNotInViewport={ true }
         parallaxData={ [
           {
@@ -149,12 +153,19 @@ export default function index () {
             properties: [
               {
                 startValue: 0,
-                endValue: 1,
+                endValue: 0.7,
                 property: 'opacity'
               },
+            ],
+          },
+          {
+            start: 1000,
+            duration: 500,
+            name: 'bgAnimation',
+            properties: [
               {
                 startValue: 0,
-                endValue: 300,
+                endValue: oneThirdWidth,
                 property: 'translateX'
               }
             ],
@@ -163,99 +174,220 @@ export default function index () {
       >
       </Plx>
 
-      <IndexGrid/>
+      <IndexGridMenu/>
 
-      <Segment style={segAnimStyle} className='Animals' basic>
-        <Grid centered columns={3}>
-          <Grid.Row>
-            <Grid.Column width={4}>
-            </Grid.Column>
-            <Grid.Column width={6}>
-              <Container>
-                <h1>Animals</h1>
-                <h4>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                  ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
-                  magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-                  ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-                  quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-                </h4>
-              </Container>
-            </Grid.Column>
-            <Grid.Column width={2}>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Segment>
+      <Plx
+        style={introStyle}
+        className='introPlx'
+        animateWhenNotInViewport={ true }
+        parallaxData={ [
+          {
+            start: 500,
+            duration: 500,
+            name: 'introAnimation',
+            properties: [
+              {
+                startValue: 1,
+                endValue: 0,
+                property: 'opacity'
+              },
+              {
+                startValue: 0,
+                endValue: -300,
+                property: 'translateY'
+              }
+            ],
+          },
+        ] }
+      >
+        <IntroContent/>
+      </Plx>
 
-      <Segment style={segProgStyle} className='Programming' basic>
-        <Grid centered columns={3}>
-          <Grid.Row>
-            <Grid.Column width={4}>
-            </Grid.Column>
-            <Grid.Column width={6}>
-              <Container>
-                <h1>Programming</h1>
-                <h4>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                  ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
-                  magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-                  ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-                  quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-                </h4>
-              </Container>
-            </Grid.Column>
-            <Grid.Column width={2}>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Segment>
+      <Plx
+        style={contentStyle}
+        className='AnimalPlx'
+        animateWhenNotInViewport={ true }
+        parallaxData={ [
+          {
+            start: 1000,
+            duration: 500,
+            name: 'AnimalAnimation',
+            properties: [
+              {
+                startValue: 0,
+                endValue: 1,
+                property: 'opacity'
+              },
+              {
+                startValue: 500,
+                endValue: 100,
+                property: 'translateY'
+              }
+            ],
+          },
+          {
+            start: 2000,
+            duration: 500,
+            name: 'AnimalAnimation',
+            properties: [
+              {
+                startValue: 1,
+                endValue: 0,
+                property: 'opacity'
+              },
+              {
+                startValue: 100,
+                endValue: -200,
+                property: 'translateY'
+              }
+            ],
+          }
+        ] }
+      >
+        <AnimalContent/>
+      </Plx>
 
-      <Segment style={segProgStyle} className='Projects' basic>
-        <Grid centered columns={3}>
-          <Grid.Row>
-            <Grid.Column width={4}>
-            </Grid.Column>
-            <Grid.Column width={6}>
-              <Container>
-                <h1>Projects</h1>
-                <h4>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                  ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
-                  magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-                  ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-                  quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-                </h4>
-              </Container>
-            </Grid.Column>
-            <Grid.Column width={2}>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Segment>
+      <Plx
+        style={contentStyle}
+        className='CodingPlx'
+        animateWhenNotInViewport={ true }
+        parallaxData={ [
+          {
+            start: 3000,
+            duration: 500,
+            name: 'AnimalAnimation',
+            properties: [
+              {
+                startValue: 0,
+                endValue: 1,
+                property: 'opacity'
+              },
+              {
+                startValue: 500,
+                endValue: 100,
+                property: 'translateY'
+              }
+            ],
+          },
+          {
+            start: 4000,
+            duration: 500,
+            name: 'AnimalAnimation',
+            properties: [
+              {
+                startValue: 1,
+                endValue: 0,
+                property: 'opacity'
+              },
+              {
+                startValue: 100,
+                endValue: -200,
+                property: 'translateY'
+              }
+            ],
+          }
+        ] }
+      >
+        <CodingContent/>
+      </Plx>
 
-      <Segment style={segProgStyle} className='Connect' basic>
-        <Grid centered columns={3}>
-          <Grid.Row>
-            <Grid.Column width={4}>
-            </Grid.Column>
-            <Grid.Column width={6}>
-              <Container>
-                <h1>Connect</h1>
-                <h4>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                  ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
-                  magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-                  ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-                  quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-                </h4>
-              </Container>
-            </Grid.Column>
-            <Grid.Column width={2}>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Segment>
+      <Plx
+        style={contentStyle}
+        className='CodingPlx'
+        animateWhenNotInViewport={ true }
+        parallaxData={ [
+          {
+            start: 5000,
+            duration: 500,
+            name: 'AnimalAnimation',
+            properties: [
+              {
+                startValue: 0,
+                endValue: 1,
+                property: 'opacity'
+              },
+              {
+                startValue: 500,
+                endValue: 100,
+                property: 'translateY'
+              }
+            ],
+          },
+          {
+            start: 6000,
+            duration: 500,
+            name: 'AnimalAnimation',
+            properties: [
+              {
+                startValue: 1,
+                endValue: 0,
+                property: 'opacity'
+              },
+              {
+                startValue: 100,
+                endValue: -200,
+                property: 'translateY'
+              }
+            ],
+          }
+        ] }
+      >
+        <ProjectsContent/>
+      </Plx>
+
+      <Plx
+        style={contentStyle}
+        className='CodingPlx'
+        animateWhenNotInViewport={ true }
+        parallaxData={ [
+          {
+            start: 7000,
+            duration: 500,
+            name: 'AnimalAnimation',
+            properties: [
+              {
+                startValue: 0,
+                endValue: 1,
+                property: 'opacity'
+              },
+              {
+                startValue: 500,
+                endValue: 100,
+                property: 'translateY'
+              }
+            ],
+          },
+          {
+            start: 8000,
+            duration: 500,
+            name: 'AnimalAnimation',
+            properties: [
+              {
+                startValue: 1,
+                endValue: 0,
+                property: 'opacity'
+              },
+              {
+                startValue: 100,
+                endValue: -200,
+                property: 'translateY'
+              }
+            ],
+          }
+        ] }
+      >
+        <ConnectContent/>
+      </Plx>
+
+      <Segment style={scrollSpaceStyle} className='Intro'></Segment>
+
+      <Segment style={scrollSpaceStyle} className='Animals'></Segment>
+
+      <Segment style={scrollSpaceStyle} className='Coding'></Segment>
+
+      <Segment style={scrollSpaceStyle} className='Projects'></Segment>
+
+      <Segment style={scrollSpaceStyle} className='Connect'></Segment>
 
       <style jsx global>{`
         html,body {

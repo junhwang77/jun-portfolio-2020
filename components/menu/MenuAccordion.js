@@ -17,8 +17,8 @@ const BioContent = (props) => (
       onClick={props.handleItemClick}
     />
     <Menu.Item
-      name='Programming'
-      active={props.activeItem === 'Programming'}
+      name='Coding'
+      active={props.activeItem === 'Coding'}
       onClick={props.handleItemClick}
     />
   </Menu.Menu>
