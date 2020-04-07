@@ -9,7 +9,7 @@ const gridStyle = {
   zIndex: 10
 }
 
-const IndexGridMenu = () => (
+const IndexGridMenu = (props) => (
   <Grid verticalAlign='middle' columns={4} centered style={gridStyle}>
     <Grid.Row>
       <Grid.Column width={4}>
@@ -17,7 +17,10 @@ const IndexGridMenu = () => (
       <Grid.Column width={7}>
       </Grid.Column>
       <Grid.Column width={3}>
-        <PlxMenu/>
+        <PlxMenu 
+          animalsStartTime={props.animalsStartTime}
+          animationDuration={props.animationDuration}  
+        />
       </Grid.Column>
     </Grid.Row>
   </Grid>

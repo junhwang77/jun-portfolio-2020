@@ -52,11 +52,6 @@ export default function index () {
     opacity: 0
   }
 
-  const scrollSpaceStyle = {
-    margin: 0,
-    height: '1700px'
-  }
-
   const segBgStyle = {
     position: 'fixed',
     width: '100%',
@@ -99,8 +94,8 @@ export default function index () {
   const codingImageStyle = {
     position: 'fixed',
     backgroundImage: "url('web-portfolio-png/coding-image.jpg')",
-    backgroundPosition: '-328px',
-    backgroundSize: '291%',
+    backgroundPosition: '42%',
+    backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     height: '100%',
     width: 'calc(100vw/3)',
@@ -111,8 +106,24 @@ export default function index () {
     left: 'calc(100vw/-3)'
   }
 
-  const animalStartTime = 1000;
-  const codingStartTime = 3000;
+  const animationDuration = 1000
+  const lingerTime = 700;
+  const sectionLength = 2000
+  const animalsStartTime = 1000;
+  const scrollSpaceSize = animationDuration + animalsStartTime
+
+  const scrollSpaceStyle = {
+    margin: 0,
+    height: scrollSpaceSize + 'px'
+  }
+
+  const codingStartTime = animalsStartTime + sectionLength;
+  const projectsStartTime = codingStartTime + sectionLength;
+  const connectStartTime = projectsStartTime + sectionLength;
+
+  const animalsOutTime = animalsStartTime + animationDuration + lingerTime;
+  const codingOutTime = codingStartTime + animationDuration + lingerTime;
+  const projectsOutTime = projectsStartTime + animationDuration + lingerTime;
 
   return (
     <div className='docBody' style={docBodyStyle}>
@@ -123,8 +134,8 @@ export default function index () {
         animateWhenNotInViewport={ true }
         parallaxData={ [
           {
-            start: animalStartTime,
-            duration: 300,
+            start: animalsStartTime,
+            duration: animationDuration,
             name: 'imgAnimation',
             properties: [
               {
@@ -136,7 +147,7 @@ export default function index () {
           },
           {
             start: codingStartTime,
-            duration: 500,
+            duration: animationDuration,
             name: 'imgAnimation',
             properties: [
               {
@@ -156,8 +167,8 @@ export default function index () {
         animateWhenNotInViewport={ true }
         parallaxData={ [
           {
-            start: animalStartTime,
-            duration: 500,
+            start: animalsStartTime,
+            duration: animationDuration,
             name: 'imgAnimation',
             properties: [
               {
@@ -169,7 +180,7 @@ export default function index () {
           },
           {
             start: codingStartTime,
-            duration: 500,
+            duration: animationDuration,
             name: 'imgAnimation',
             properties: [
               {
@@ -190,7 +201,7 @@ export default function index () {
         parallaxData={ [
           {
             start: codingStartTime,
-            duration: 500,
+            duration: animationDuration,
             name: 'imgAnimation',
             properties: [
               {
@@ -211,19 +222,19 @@ export default function index () {
         parallaxData={ [
           {
             start: 0,
-            duration: 500,
+            duration: animationDuration,
             name: 'bgAnimation',
             properties: [
               {
                 startValue: 0,
-                endValue: 0.8,
+                endValue: 0.9,
                 property: 'opacity'
               },
             ],
           },
           {
-            start: animalStartTime,
-            duration: 500,
+            start: animalsStartTime,
+            duration: animationDuration,
             name: 'bgAnimation',
             properties: [
               {
@@ -237,7 +248,10 @@ export default function index () {
       >
       </Plx>
 
-      <IndexGridMenu/>
+      <IndexGridMenu 
+        animalsStartTime={animalsStartTime} 
+        animationDuration={animationDuration}
+      />
 
       <Plx
         style={introStyle}
@@ -246,7 +260,7 @@ export default function index () {
         parallaxData={ [
           {
             start: 500,
-            duration: 500,
+            duration: animationDuration,
             name: 'introAnimation',
             properties: [
               {
@@ -272,8 +286,8 @@ export default function index () {
         animateWhenNotInViewport={ true }
         parallaxData={ [
           {
-            start: animalStartTime,
-            duration: 500,
+            start: animalsStartTime,
+            duration: animationDuration,
             name: 'AnimalAnimation',
             properties: [
               {
@@ -289,8 +303,8 @@ export default function index () {
             ],
           },
           {
-            start: 2000,
-            duration: 500,
+            start: animalsOutTime,
+            duration: animationDuration,
             name: 'AnimalAnimation',
             properties: [
               {
@@ -317,8 +331,8 @@ export default function index () {
         parallaxData={ [
           {
             start: codingStartTime,
-            duration: 500,
-            name: 'CodingAnimation',
+            duration: animationDuration,
+            name: 'CodingAnimationIn',
             properties: [
               {
                 startValue: 0,
@@ -333,9 +347,9 @@ export default function index () {
             ],
           },
           {
-            start: 4000,
-            duration: 500,
-            name: 'AnimalAnimation',
+            start: codingOutTime,
+            duration: animationDuration,
+            name: 'CodingAnimationOut',
             properties: [
               {
                 startValue: 1,
@@ -356,13 +370,13 @@ export default function index () {
 
       <Plx
         style={contentStyle}
-        className='CodingPlx'
+        className='ProjectsPlx'
         animateWhenNotInViewport={ true }
         parallaxData={ [
           {
-            start: 5000,
-            duration: 500,
-            name: 'AnimalAnimation',
+            start: projectsStartTime,
+            duration: animationDuration,
+            name: 'ProjectsAnimationIn',
             properties: [
               {
                 startValue: 0,
@@ -377,9 +391,9 @@ export default function index () {
             ],
           },
           {
-            start: 6000,
-            duration: 500,
-            name: 'AnimalAnimation',
+            start: projectsOutTime,
+            duration: animationDuration,
+            name: 'ProjectsAnimationOut',
             properties: [
               {
                 startValue: 1,
@@ -400,13 +414,13 @@ export default function index () {
 
       <Plx
         style={contentStyle}
-        className='CodingPlx'
+        className='ConnectPlx'
         animateWhenNotInViewport={ true }
         parallaxData={ [
           {
-            start: 7000,
-            duration: 500,
-            name: 'AnimalAnimation',
+            start: connectStartTime,
+            duration: animationDuration,
+            name: 'ConnectAnimationIn',
             properties: [
               {
                 startValue: 0,
@@ -420,23 +434,6 @@ export default function index () {
               }
             ],
           },
-          {
-            start: 8000,
-            duration: 500,
-            name: 'AnimalAnimation',
-            properties: [
-              {
-                startValue: 1,
-                endValue: 0,
-                property: 'opacity'
-              },
-              {
-                startValue: 100,
-                endValue: -200,
-                property: 'translateY'
-              }
-            ],
-          }
         ] }
       >
         <ConnectContent/>

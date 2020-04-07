@@ -59,6 +59,8 @@ export default class PlxMenu extends Component {
   render() {
     const { activeItem } = this.state
     const { activeIndex } = this.state
+    const animalsStartTime = this.props.animalsStartTime
+    const animationDuration = this.props.animationDuration
 
     return (
       <Plx
@@ -67,8 +69,8 @@ export default class PlxMenu extends Component {
         animateWhenNotInViewport={ true }
         parallaxData={ [
           {
-            start: 1000,
-            duration: 300,
+            start: animalsStartTime,
+            duration: animationDuration,
             name: 'first',
             properties: [
               {
