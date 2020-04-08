@@ -1,16 +1,19 @@
 import { Segment, Image } from 'semantic-ui-react'
 
 const menuHeaderStyle = {
-  backgroundColor: 'black',
+  backgroundColor: 'transparent',
   color: 'white',
   textAlign: 'center',
-  fontStyle: 'italic',
+  fontFamily: 'typo_papyrusm',
+  fontWeight: 'normal',
+  fontStyle: 'normal',
+  border: 0,
+  boxShadow: 'none'
 }
 
 const MenuHeader = () => (
   <Segment style={menuHeaderStyle}>
-    <Image src='/web-portfolio-png/name.png' size='small' centered/>
-    <p>( Hwang, Jun-Hyun )</p>
+    <p>황준현</p>
   </Segment>
   )
 

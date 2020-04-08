@@ -12,7 +12,8 @@ const plxMenu = {
 export default class PlxMenu extends Component {
   state = { 
     activeItem: 'Bio',
-    activeIndex: '' 
+    activeIndex: '',
+    color: 'white'
   }
 
   componentDidMount(){
@@ -61,6 +62,7 @@ export default class PlxMenu extends Component {
     const { activeIndex } = this.state
     const animalsStartTime = this.props.animalsStartTime
     const animationDuration = this.props.animationDuration
+    const codingOutTime = this.props.codingOutTime
 
     return (
       <Plx
@@ -82,6 +84,18 @@ export default class PlxMenu extends Component {
                 startValue: 0,
                 endValue: 1,
                 property: 'opacity'
+              }
+            ],
+          },
+          {
+            start: codingOutTime,
+            duration: animationDuration,
+            name: 'ProjectsAnimationIn',
+            properties: [
+              {
+                startValue: '#FFFFFF',
+                endValue: '#000000',
+                property: 'color'
               }
             ],
           },

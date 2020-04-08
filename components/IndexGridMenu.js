@@ -19,7 +19,8 @@ const IndexGridMenu = (props) => (
       <Grid.Column width={3}>
         <PlxMenu 
           animalsStartTime={props.animalsStartTime}
-          animationDuration={props.animationDuration}  
+          animationDuration={props.animationDuration}
+          codingOutTime={props.codingOutTime} 
         />
       </Grid.Column>
     </Grid.Row>

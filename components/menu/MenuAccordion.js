@@ -1,7 +1,9 @@
 import { Accordion, Menu, Segment } from 'semantic-ui-react'
 
 const MenuAccordionStyle = {
-  backgroundColor: 'black'
+  backgroundColor: 'transparent',
+  border: 0,
+  boxShadow: 'none'
 }
 
 const BioContent = (props) => (
@@ -26,7 +28,7 @@ const BioContent = (props) => (
 
 const MenuAccordion = (props) => (
   <Segment style={MenuAccordionStyle}>
-    <Accordion as={Menu} pointing secondary vertical fluid inverted>
+    <Accordion as={Menu} pointing secondary vertical fluid>
       <Accordion.Title
         as={Menu.Item}
         content='Bio'
@@ -63,6 +65,8 @@ const MenuAccordion = (props) => (
         border-right-width: 0;
         border-right-style: none;
         border-right-color: none;
+        border-top: 0;
+        border-bottom: 0;
       }
       .ui.secondary.vertical.pointing.menu .item {
         margin: 0 0 0 -2px;

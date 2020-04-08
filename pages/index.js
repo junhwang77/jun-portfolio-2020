@@ -16,15 +16,21 @@ import ConnectContent from '../components/GridContent/ConnectContent';
 export default function index () {
 
   const[oneThirdWidth, setOneThirdWidth] = useState(0)
+  const[viewHeight, setViewHeight] = useState(0)
 
   useEffect(()=>{
     const dynamicBgWidth = () => {
-      console.log('resized?')
       setOneThirdWidth(window.innerWidth/3)
     }
+    const dynamicBgHeight = () => {
+      setViewHeight(window.innerHeight)
+    }
     dynamicBgWidth()
-    window.addEventListener('resize', dynamicBgWidth)
-
+    dynamicBgHeight()
+    window.addEventListener('resize', () => {    
+      dynamicBgHeight()
+      dynamicBgWidth()
+    })
   })
 
   const docBodyStyle = {
@@ -38,7 +44,7 @@ export default function index () {
     padding: '11em 0',
     margin: 0,
     color: 'white',
-    zIndex: 9
+    zIndex: 9,
   }
 
   const contentStyle = {
@@ -93,7 +99,7 @@ export default function index () {
 
   const codingImageStyle = {
     position: 'fixed',
-    backgroundImage: "url('web-portfolio-png/coding-image.jpg')",
+    backgroundImage: "url('web-portfolio-png/programming-bg.jpg')",
     backgroundPosition: '42%',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -104,6 +110,19 @@ export default function index () {
     border: 0,
     boxSizing: 'content-box',
     left: 'calc(100vw/-3)'
+  }
+
+  const projectsStyle = {
+    position: 'fixed',
+    width: '100%',
+    height: '100%',
+    margin: '0',
+    zIndex: 6,
+    backgroundColor: 'white',
+    opacity: 1,
+    top: '100vh',
+    paddingTop: '3em',
+    border: 'red solid'
   }
 
   const animationDuration = 1000
@@ -157,6 +176,18 @@ export default function index () {
               }
             ],
           },
+          {
+            start: codingOutTime,
+            duration: animationDuration,
+            name: 'CodingAnimationOut',
+            properties: [
+              {
+                startValue: 0,
+                endValue: -viewHeight,
+                property: 'translateY'
+              }
+            ],
+          }
         ] }
       >
       </Plx>
@@ -190,6 +221,18 @@ export default function index () {
               }
             ],
           },
+          {
+            start: codingOutTime,
+            duration: animationDuration,
+            name: 'CodingAnimationOut',
+            properties: [
+              {
+                startValue: 0,
+                endValue: -viewHeight,
+                property: 'translateY'
+              }
+            ],
+          }
         ] }
       >
       </Plx>
@@ -211,6 +254,18 @@ export default function index () {
               }
             ],
           },
+          {
+            start: codingOutTime,
+            duration: animationDuration,
+            name: 'CodingAnimationOut',
+            properties: [
+              {
+                startValue: 0,
+                endValue: -viewHeight,
+                property: 'translateY'
+              }
+            ],
+          }
         ] }
       >
       </Plx>
@@ -244,6 +299,18 @@ export default function index () {
               }
             ],
           },
+          {
+            start: codingOutTime,
+            duration: animationDuration,
+            name: 'CodingAnimationOut',
+            properties: [
+              {
+                startValue: 0,
+                endValue: -viewHeight,
+                property: 'translateY'
+              }
+            ],
+          }
         ] }
       >
       </Plx>
@@ -251,6 +318,7 @@ export default function index () {
       <IndexGridMenu 
         animalsStartTime={animalsStartTime} 
         animationDuration={animationDuration}
+        codingOutTime={codingOutTime}
       />
 
       <Plx
@@ -274,7 +342,7 @@ export default function index () {
                 property: 'translateY'
               }
             ],
-          },
+          }
         ] }
       >
         <IntroContent/>
@@ -358,7 +426,7 @@ export default function index () {
               },
               {
                 startValue: 100,
-                endValue: -200,
+                endValue: -200-viewHeight,
                 property: 'translateY'
               }
             ],
@@ -369,40 +437,30 @@ export default function index () {
       </Plx>
 
       <Plx
-        style={contentStyle}
+        style={projectsStyle}
         className='ProjectsPlx'
         animateWhenNotInViewport={ true }
         parallaxData={ [
           {
-            start: projectsStartTime,
+            start: codingOutTime,
             duration: animationDuration,
             name: 'ProjectsAnimationIn',
             properties: [
               {
                 startValue: 0,
-                endValue: 1,
-                property: 'opacity'
-              },
-              {
-                startValue: 500,
-                endValue: 100,
+                endValue: -viewHeight,
                 property: 'translateY'
               }
             ],
           },
           {
-            start: projectsOutTime,
+            start: connectStartTime,
             duration: animationDuration,
             name: 'ProjectsAnimationOut',
             properties: [
               {
-                startValue: 1,
-                endValue: 0,
-                property: 'opacity'
-              },
-              {
-                startValue: 100,
-                endValue: -200,
+                startValue: -viewHeight,
+                endValue: -viewHeight*2,
                 property: 'translateY'
               }
             ],
@@ -456,7 +514,21 @@ export default function index () {
           margin: 0px;
           padding: 0px;
           background-color: black; 
-      }
+        }
+        @font-face {
+          font-family: 'typo_papyrusm';
+          src: url('/fonts/webfontkit-papyrus-korean/typo_papyrusm-webfont.woff2') format('woff2'),
+               url('/fonts/webfontkit-papyrus-korean/typo_papyrusm-webfont.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+        }
+        @font-face {
+          font-family: 'antonregular';
+          src: url('/fonts/webfontkit-anton/anton-regular.woff2') format('woff2'),
+               url('/fonts/webfontkit-anton/anton-regular.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+        }
       `}
       </style>
     </div>
