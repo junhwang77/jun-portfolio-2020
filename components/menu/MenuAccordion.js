@@ -19,8 +19,8 @@ const BioContent = (props) => (
       onClick={props.handleItemClick}
     />
     <Menu.Item
-      name='Coding'
-      active={props.activeItem === 'Coding'}
+      name='Programming'
+      active={props.activeItem === 'Programming'}
       onClick={props.handleItemClick}
     />
   </Menu.Menu>
@@ -61,7 +61,7 @@ const MenuAccordion = (props) => (
       .ui.secondary.vertical.pointing.menu {
         border-left-width: 2px;
         border-left-style: solid;
-        border-left-color: rgba(34,36,38,.15);
+        border-left-color: inherit;
         border-right-width: 0;
         border-right-style: none;
         border-right-color: none;
@@ -70,6 +70,10 @@ const MenuAccordion = (props) => (
       }
       .ui.secondary.vertical.pointing.menu .item {
         margin: 0 0 0 -2px;
+        color: inherit;
+      }
+      .ui.secondary.vertical.pointing.menu .active.item {
+        border-color: inherit; 
       }
       .ui.vertical.menu .item>i.icon {
         transform: scaleX(-1);
@@ -80,6 +84,12 @@ const MenuAccordion = (props) => (
       }
       .ui.secondary.pointing.menu .dropdown.item:active, .ui.secondary.pointing.menu .link.item:active, .ui.secondary.pointing.menu a.item:active {
         border-color: grey;
+      }
+      .ui.secondary.pointing.menu .active.item:hover {
+        color: inherit;
+      }
+      .ui.secondary.pointing.menu .dropdown.item:hover, .ui.secondary.pointing.menu .link.item:hover, .ui.secondary.pointing.menu a.item:hover {
+        color: inherit;
       }
     `}
     </style>

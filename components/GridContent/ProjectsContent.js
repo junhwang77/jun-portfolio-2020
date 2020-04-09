@@ -1,23 +1,112 @@
-import { Grid, Container } from 'semantic-ui-react'
+import { 
+  Grid, 
+  Container, 
+  Image, 
+  Segment,
+  Label,
+  Card
+  } from 'semantic-ui-react'
+
+
+const projectGridStyle = {
+  paddingTop:'20%'
+}
 
 const ProjectsContent = () => (
-  <Grid centered columns={3}>
+  <Grid centered verticalAlign='middle' style={projectGridStyle}>
     <Grid.Row>
       <Grid.Column width={4}>
       </Grid.Column>
-      <Grid.Column width={6}>
-        <Container>
-          <h1>Projects</h1>
-          <h4>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-            ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
-            magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-            ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-            quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-          </h4>
+      <Grid.Column width={4}>
+        <Container style={{textAlign: 'center'}}>
+          <h2>Projects</h2>
         </Container>
       </Grid.Column>
-      <Grid.Column width={2}>
+      <Grid.Column width={4}>
+      </Grid.Column>
+      <Grid.Column width={3}>
+      </Grid.Column>
+    </Grid.Row>
+    
+    <Grid.Row columns={4}>
+      <Grid.Column width={4}>
+        <Card>
+          <Image 
+            src='web-portfolio-png/placeholder.png'
+            as='a'
+            size='medium'
+            href='http://google.com'
+            target='_blank'
+          />
+          <Label attached='bottom'>CSS</Label>
+        </Card>
+      </Grid.Column>
+      <Grid.Column width={4}>
+        <Card>
+          <Image 
+            src='web-portfolio-png/placeholder.png'
+            as='a'
+            size='medium'
+            href='http://google.com'
+            target='_blank'
+          />
+          <Label attached='bottom'>CSS</Label>
+        </Card>
+      </Grid.Column>
+      <Grid.Column width={4}>
+        <Card>
+          <Image 
+            src='web-portfolio-png/placeholder.png'
+            as='a'
+            size='medium'
+            href='http://google.com'
+            target='_blank'
+          />
+          <Label attached='bottom'>CSS</Label>
+        </Card>
+      </Grid.Column>
+      <Grid.Column width={3}>
+      </Grid.Column>
+    </Grid.Row>
+
+    <Grid.Row columns={4}>
+      <Grid.Column width={4}>
+        <Card>
+          <Image 
+            src='web-portfolio-png/placeholder.png'
+            as='a'
+            size='medium'
+            href='http://google.com'
+            target='_blank'
+          />
+          <Label attached='bottom'>CSS</Label>
+        </Card>
+      </Grid.Column>
+      <Grid.Column width={4}>
+        <Card>
+          <Image 
+            src='web-portfolio-png/placeholder.png'
+            as='a'
+            size='medium'
+            href='http://google.com'
+            target='_blank'
+          />          
+          <Label attached='bottom'>CSS</Label>
+        </Card>
+      </Grid.Column>
+      <Grid.Column width={4}>
+        <Card>
+          <Image 
+            src='web-portfolio-png/placeholder.png'
+            as='a'
+            size='medium'
+            href='http://google.com'
+            target='_blank'
+          />          
+          <Label attached='bottom'>CSS</Label>
+        </Card>      
+      </Grid.Column>
+      <Grid.Column width={3}>
       </Grid.Column>
     </Grid.Row>
   </Grid>

@@ -7,14 +7,14 @@ const ConnectContent = () => (
       </Grid.Column>
       <Grid.Column width={6}>
         <Container>
-          <h1>Connect</h1>
-          <h4>
+          <h2>Connect</h2>
+          <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
             ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
             magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
             ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
             quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-          </h4>
+          </p>
         </Container>
       </Grid.Column>
       <Grid.Column width={2}>

@@ -7,13 +7,13 @@ const plxMenu = {
   opacity: 0,
   position: 'relative',
   right: '-250px',
+  color: 'white'
 }
 
 export default class PlxMenu extends Component {
   state = { 
     activeItem: 'Bio',
     activeIndex: '',
-    color: 'white'
   }
 
   componentDidMount(){
@@ -36,7 +36,7 @@ export default class PlxMenu extends Component {
   handleScroll = () => {
     let introNode = { node:document.getElementsByClassName('Intro'), name:'Intro' }
     let animalNode = { node:document.getElementsByClassName('Animals'), name:'Animals' }
-    let programmingNode = { node:document.getElementsByClassName('Coding'), name:'Coding' }
+    let programmingNode = { node:document.getElementsByClassName('Programming'), name:'Programming' }
     let projectsNode = { node:document.getElementsByClassName('Projects'), name:'Projects' }
     let connectNode = { node:document.getElementsByClassName('Connect'), name:'Connect' }
     let menuArray = [introNode, animalNode, programmingNode, projectsNode, connectNode]
@@ -45,7 +45,7 @@ export default class PlxMenu extends Component {
       let nodeScrollSize = e.node[0].offsetTop + e.node[0].scrollHeight 
       if(e.node[0].offsetTop - 300 <= window.scrollY && window.scrollY <= nodeScrollSize ) {
         this.setState({ activeItem: e.name })
-        if(e.name == 'Intro' || e.name == 'Animals' || e.name == 'Coding'){
+        if(e.name == 'Intro' || e.name == 'Animals' || e.name == 'Programming'){
           this.setState({ activeIndex: 0 })
         }
       }
@@ -96,6 +96,11 @@ export default class PlxMenu extends Component {
                 startValue: '#FFFFFF',
                 endValue: '#000000',
                 property: 'color'
+              },
+              {
+                startValue: '#FFFFFF',
+                endValue: '#000000',
+                property: 'borderColor'
               }
             ],
           },

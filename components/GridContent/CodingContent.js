@@ -7,14 +7,10 @@ const CodingContent = () => (
       </Grid.Column>
       <Grid.Column width={6}>
         <Container>
-          <h1>Programming</h1>
-          <h4>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-            ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
-            magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-            ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-            quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-          </h4>
+          <h2>Programming</h2>
+          <p>
+            By a friend's suggestion, I decided to make a career transition to software development. I started learning coding online and enrolled in a coding bootcamp. After graduating from the bootcamp, I found my first internship in Washington DC.
+          </p>
         </Container>
       </Grid.Column>
       <Grid.Column width={2}>

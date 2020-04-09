@@ -3,20 +3,16 @@ import PlxMenu from './PlxMenu'
 
 const gridStyle = {
   position: 'fixed',
-  right: 0,
+  right: '-77vw',  
   top: '20vh',
   width: '100%',
-  zIndex: 10
+  zIndex: 11
 }
 
 const IndexGridMenu = (props) => (
   <Grid verticalAlign='middle' columns={4} centered style={gridStyle}>
     <Grid.Row>
-      <Grid.Column width={4}>
-      </Grid.Column>
-      <Grid.Column width={7}>
-      </Grid.Column>
-      <Grid.Column width={3}>
+      <Grid.Column floated='left' width={3}>
         <PlxMenu 
           animalsStartTime={props.animalsStartTime}
           animationDuration={props.animationDuration}

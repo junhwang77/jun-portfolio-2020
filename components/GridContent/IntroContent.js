@@ -7,10 +7,11 @@ const IntroContent = () => (
       </Grid.Column>
       <Grid.Column width={6}>
         <Container>
-          <h1 style={{fontSize:'6vw'}}>Full Stack Developer</h1>
-          <h1 style={{fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif'}}>
-            Hi. I am Jun, a versatile developer with emphasis in front-end development.
-          </h1>
+          <h1 style={{color:'white',fontSize:'6vw'}}>Full Stack Developer</h1>
+          <span>Hi, I'm Jun.</span>
+          <p>
+            I am a versatile developer, specializing in frontend development.
+          </p>
         </Container>
       </Grid.Column>
     </Grid.Row>

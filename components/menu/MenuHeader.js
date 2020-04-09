@@ -2,7 +2,7 @@ import { Segment, Image } from 'semantic-ui-react'
 
 const menuHeaderStyle = {
   backgroundColor: 'transparent',
-  color: 'white',
+  color: 'inherit',
   textAlign: 'center',
   fontFamily: 'typo_papyrusm',
   fontWeight: 'normal',
@@ -13,7 +13,7 @@ const menuHeaderStyle = {
 
 const MenuHeader = () => (
   <Segment style={menuHeaderStyle}>
-    <p>황준현</p>
+    <span>황준현</span>
   </Segment>
   )
 

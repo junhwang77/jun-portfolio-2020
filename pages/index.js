@@ -117,18 +117,17 @@ export default function index () {
     width: '100%',
     height: '100%',
     margin: '0',
-    zIndex: 6,
+    zIndex: 10,
     backgroundColor: 'white',
     opacity: 1,
     top: '100vh',
-    paddingTop: '3em',
     border: 'red solid'
   }
 
   const animationDuration = 1000
   const lingerTime = 700;
   const sectionLength = 2000
-  const animalsStartTime = 1000;
+  const animalsStartTime = 1500;
   const scrollSpaceSize = animationDuration + animalsStartTime
 
   const scrollSpaceStyle = {
@@ -327,18 +326,25 @@ export default function index () {
         animateWhenNotInViewport={ true }
         parallaxData={ [
           {
-            start: 500,
+            start: 0,
             duration: animationDuration,
             name: 'introAnimation',
             properties: [
               {
-                startValue: 1,
-                endValue: 0,
-                property: 'opacity'
+                startValue: '#FFFFFF',
+                endValue: '#000000',
+                property: 'color'
               },
+            ],
+          },
+          {
+            start: 1200,
+            duration: animationDuration,
+            name: 'introAnimation',
+            properties: [
               {
                 startValue: 0,
-                endValue: -300,
+                endValue: -viewHeight,
                 property: 'translateY'
               }
             ],
@@ -420,13 +426,8 @@ export default function index () {
             name: 'CodingAnimationOut',
             properties: [
               {
-                startValue: 1,
-                endValue: 0,
-                property: 'opacity'
-              },
-              {
                 startValue: 100,
-                endValue: -200-viewHeight,
+                endValue: -viewHeight,
                 property: 'translateY'
               }
             ],
@@ -501,7 +502,7 @@ export default function index () {
 
       <Segment style={scrollSpaceStyle} className='Animals'></Segment>
 
-      <Segment style={scrollSpaceStyle} className='Coding'></Segment>
+      <Segment style={scrollSpaceStyle} className='Programming'></Segment>
 
       <Segment style={scrollSpaceStyle} className='Projects'></Segment>
 
@@ -528,6 +529,36 @@ export default function index () {
                url('/fonts/webfontkit-anton/anton-regular.woff') format('woff');
           font-weight: normal;
           font-style: normal;
+        }
+        @font-face {
+          font-family: 'robotoregular';
+          src: url('/fonts/webfontkit-roboto/roboto-regular-webfont.woff2') format('woff2'),
+               url('/fonts/webfontkit-roboto/roboto-regular-webfont.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+        }
+        h1 {
+          font-family: 'antonregular';
+        }
+        h1:before {
+          content: 'Full Stack Developer';
+          position: absolute;
+          left: 20px;
+          top: 7px;
+          color: #F65058FF;
+          z-index: -1;
+        }
+        span {
+          font-family: 'typo_papyrusm';
+          font-size: 4vw;
+        }
+        h2 {
+          font-family: 'typo_papyrusm';
+          font-size: 4vw;
+        }
+        p {
+          font-family: 'robotoregular';
+          font-size: 1.5vw;
         }
       `}
       </style>
