@@ -1,10 +1,7 @@
 import {useState,useEffect} from 'react';
 import Plx from 'react-plx';
 import { 
-  Container,
-  Segment,
-  Image,
-  Grid,
+  Segment
  } from 'semantic-ui-react';
 import IndexGridMenu from '../components/IndexGridMenu';
 import IntroContent from '../components/GridContent/IntroContent';
@@ -121,7 +118,6 @@ export default function index () {
     backgroundColor: 'white',
     opacity: 1,
     top: '100vh',
-    border: 'red solid'
   }
 
   const animationDuration = 1000
@@ -131,6 +127,13 @@ export default function index () {
   const scrollSpaceSize = animationDuration + animalsStartTime
 
   const scrollSpaceStyle = {
+    border: 0,
+    borderRadius: 0,
+    margin: 0,
+    height: sectionLength + 'px'
+  }
+
+  const introScrollSpaceStyle = {
     margin: 0,
     height: scrollSpaceSize + 'px'
   }
@@ -141,7 +144,6 @@ export default function index () {
 
   const animalsOutTime = animalsStartTime + animationDuration + lingerTime;
   const codingOutTime = codingStartTime + animationDuration + lingerTime;
-  const projectsOutTime = projectsStartTime + animationDuration + lingerTime;
 
   return (
     <div className='docBody' style={docBodyStyle}>
@@ -318,6 +320,7 @@ export default function index () {
         animalsStartTime={animalsStartTime} 
         animationDuration={animationDuration}
         codingOutTime={codingOutTime}
+        connectStartTime={connectStartTime}
       />
 
       <Plx
@@ -460,6 +463,11 @@ export default function index () {
             name: 'ProjectsAnimationOut',
             properties: [
               {
+                startValue: '#FFFFFF',
+                endValue: '#EDECF1',
+                property: 'backgroundColor'
+              },
+              {
                 startValue: -viewHeight,
                 endValue: -viewHeight*2,
                 property: 'translateY'
@@ -488,7 +496,7 @@ export default function index () {
               },
               {
                 startValue: 500,
-                endValue: 100,
+                endValue: -140,
                 property: 'translateY'
               }
             ],
@@ -498,7 +506,7 @@ export default function index () {
         <ConnectContent/>
       </Plx>
 
-      <Segment style={scrollSpaceStyle} className='Intro'></Segment>
+      <Segment style={introScrollSpaceStyle} className='Intro'></Segment>
 
       <Segment style={scrollSpaceStyle} className='Animals'></Segment>
 
@@ -540,14 +548,6 @@ export default function index () {
         h1 {
           font-family: 'antonregular';
         }
-        h1:before {
-          content: 'Full Stack Developer';
-          position: absolute;
-          left: 20px;
-          top: 7px;
-          color: #F65058FF;
-          z-index: -1;
-        }
         span {
           font-family: 'typo_papyrusm';
           font-size: 4vw;
@@ -559,6 +559,13 @@ export default function index () {
         p {
           font-family: 'robotoregular';
           font-size: 1.5vw;
+        }
+        .ui.list .list>a.item:hover .icon, .ui.list>a.item:hover .icon {
+          color: inherit;
+          opacity: .25;
+        }
+        .ui.list>a.item i.icon {
+          color: inherit;
         }
       `}
       </style>

@@ -17,6 +17,7 @@ const IndexGridMenu = (props) => (
           animalsStartTime={props.animalsStartTime}
           animationDuration={props.animationDuration}
           codingOutTime={props.codingOutTime} 
+          connectStartTime={props.connectStartTime}
         />
       </Grid.Column>
     </Grid.Row>

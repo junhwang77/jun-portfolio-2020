@@ -63,6 +63,7 @@ export default class PlxMenu extends Component {
     const animalsStartTime = this.props.animalsStartTime
     const animationDuration = this.props.animationDuration
     const codingOutTime = this.props.codingOutTime
+    const connectStartTime = this.props.connectStartTime
 
     return (
       <Plx
@@ -101,7 +102,7 @@ export default class PlxMenu extends Component {
                 startValue: '#FFFFFF',
                 endValue: '#000000',
                 property: 'borderColor'
-              }
+              },
             ],
           },
         ] }
