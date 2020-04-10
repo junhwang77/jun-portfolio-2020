@@ -1,4 +1,4 @@
-import { Grid, Container, List, GridRow } from 'semantic-ui-react'
+import { Grid, Container, List } from 'semantic-ui-react'
 
 const connectStyle = {
   backgroundImage: 'url("web-portfolio-png/childhood.jpg")',
@@ -31,7 +31,7 @@ const ConnectContent = () => (
   <Grid centered columns={2} style={connectStyle}>
     <Grid.Row style={{    
       height: '100vh',
-      paddingTop: '21vh'
+      paddingTop: '28vh'
     }}>
       <Grid.Column width={12}>
         <Container textAlign='center'>
@@ -41,25 +41,29 @@ const ConnectContent = () => (
               style={connectIdStyle}
               icon='id badge outline'
               as='a'
-              href='http://www.semantic-ui.com'
+              href='pdf/jun-resumeFS03252020.pdf'
+              target = "_blank"
             />
             <List.Item 
               style={connectLiStyle}
               icon='linkedin' 
               as='a'
               href='https://www.linkedin.com/in/jun-hwang-b8316326/'
+              target = "_blank"
             />
             <List.Item
               style={connectGhStyle}
               icon='github'
               as='a'
               href='https://github.com/junhwang77'
+              target = "_blank"
             />
             <List.Item
               style={connectEmStyle}
               icon='at'
               as='a'
               href='mailto:junhwang77@hotmail.com'
+              target = "_blank"
             />
           </List>
         </Container>

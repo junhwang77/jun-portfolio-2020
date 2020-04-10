@@ -41,7 +41,7 @@ export default function index () {
     padding: '11em 0',
     margin: 0,
     color: 'white',
-    zIndex: 9,
+    zIndex: 10,
   }
 
   const contentStyle = {
@@ -52,7 +52,7 @@ export default function index () {
     margin: 0,
     color: 'white',
     zIndex: 9,
-    opacity: 0
+    opacity: 0,
   }
 
   const segBgStyle = {
