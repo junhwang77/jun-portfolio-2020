@@ -30,7 +30,7 @@ const projectsArr = [
     {
       image:"url('web-portfolio-png/ud.png')",
       link: 'http://ec2-54-212-10-196.us-west-2.compute.amazonaws.com/',
-      info: 'User Dashboard - Simple Facebook like application. (PHP, Codeigniter 3, MySQL, AWS EC2)'
+      info: 'User Dashboard - A simpler Facebook like application. (PHP, Codeigniter 3, MySQL, AWS EC2)'
     },
     {
       image:"url('web-portfolio-png/hc.png')",
@@ -38,9 +38,9 @@ const projectsArr = [
       info: 'Interactive Graph for CSIS Aerospace Security Project - Dynamically updates the data from google spreadsheet. (Highcharts.js, JavaScript, jQuery)'
     },
     {
-      image:"url('web-portfolio-png/vet-animals.jpg')",
-      link: 'https://www.google.com/',
-      info: 'In Progress'
+      image:"url('web-portfolio-png/ca.png')",
+      link: 'https://codepen.io/junhwang/full/yjJGqX',
+      info: 'Calculator App - (HTML,CSS, JavaScript)'
     }
   ],
   [
