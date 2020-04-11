@@ -7,25 +7,40 @@ const connectStyle = {
   color: 'black'
 }
 
-const connectIdStyle = {
-  fontSize: '5vw',
-  color: 'darkgreen'
-}
-
-const connectLiStyle = {
-  fontSize: '5vw',
-  color: '#0076B5'
-}
-
-const connectGhStyle = {
-  fontSize: '5vw',
-  color: 'black'
-}
-
-const connectEmStyle = {
-  fontSize: '5vw',
-  color: 'white'
-}
+const connectArr = [
+  {
+    style:{
+      fontSize: '5vw',
+      color: 'darkgreen'
+    },
+    icon: 'id badge outline',
+    link: 'pdf/jun-resumeFS03252020.pdf',
+  },
+  {
+    style:{
+      fontSize: '5vw',
+      color: '#0076B5'
+    },
+    icon: 'linkedin',
+    link: 'https://www.linkedin.com/in/jun-hwang-b8316326/',
+  },
+  {
+    style:{
+      fontSize: '5vw',
+      color: 'black'
+    },
+    icon: 'github',
+    link: 'https://github.com/junhwang77',
+  },
+  {
+    style:{
+      fontSize: '5vw',
+      color: 'white'
+    },
+    icon: 'at',
+    link: 'mailto:junhwang77@hotmail.com',
+  }
+]
 
 const ConnectContent = () => (
   <Grid centered columns={2} style={connectStyle}>
@@ -37,34 +52,15 @@ const ConnectContent = () => (
         <Container textAlign='center'>
           <h2>Get In Touch.</h2>
           <List horizontal>
-            <List.Item
-              style={connectIdStyle}
-              icon='id badge outline'
-              as='a'
-              href='pdf/jun-resumeFS03252020.pdf'
-              target = "_blank"
-            />
-            <List.Item 
-              style={connectLiStyle}
-              icon='linkedin' 
-              as='a'
-              href='https://www.linkedin.com/in/jun-hwang-b8316326/'
-              target = "_blank"
-            />
-            <List.Item
-              style={connectGhStyle}
-              icon='github'
-              as='a'
-              href='https://github.com/junhwang77'
-              target = "_blank"
-            />
-            <List.Item
-              style={connectEmStyle}
-              icon='at'
-              as='a'
-              href='mailto:junhwang77@hotmail.com'
-              target = "_blank"
-            />
+            {connectArr.map(connectItem =>
+              <List.Item 
+                style={connectItem.style}
+                icon={connectItem.icon} 
+                as='a'
+                href={connectItem.link}
+                target = "_blank"
+              />
+            )}
           </List>
         </Container>
       </Grid.Column>

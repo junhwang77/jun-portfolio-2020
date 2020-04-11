@@ -5,6 +5,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link rel="shortcut icon" href="/favicon.ico" />
           <link
             rel="preload"
             href="/fonts/webfontkit-papyrus-korean/typo_papyrusm-webfont.woff"

@@ -101,12 +101,12 @@ export default function index () {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     height: '100%',
-    width: 'calc(100vw/3)',
-    zIndex: 5,
+    width: 'calc(100.4vw/3)',
+    zIndex: 4,
     borderRadius: 0,
     border: 0,
     boxSizing: 'content-box',
-    left: 'calc(100vw/-3)'
+    left: 'calc(100.2vw/-3)'
   }
 
   const projectsStyle = {
@@ -250,7 +250,7 @@ export default function index () {
             properties: [
               {
                 startValue: 0,
-                endValue: oneThirdWidth,
+                endValue: oneThirdWidth-.1,
                 property: 'translateX'
               }
             ],
