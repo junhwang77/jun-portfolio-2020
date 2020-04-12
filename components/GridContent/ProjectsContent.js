@@ -71,7 +71,7 @@ const ProjectsContent = () => {
         <Grid.Column width={4}>
         </Grid.Column>
         <Grid.Column width={4}>
-          <Container style={{textAlign: 'center'}}>
+          <Container textAlign='center' >
             <h1 style={projectsTitle}>Projects</h1>
             <h1 style={projectsTitleAfter}>Projects</h1>
           </Container>
