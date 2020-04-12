@@ -10,7 +10,7 @@ import CodingContent from '../components/GridContent/CodingContent';
 import ProjectsContent from '../components/GridContent/ProjectsContent';
 import ConnectContent from '../components/GridContent/ConnectContent';
 
-const PlxPages = () => {
+const PlxPages = (props) => {
   const[oneThirdWidth, setOneThirdWidth] = useState(0)
   const[viewHeight, setViewHeight] = useState(0)
 
@@ -141,7 +141,7 @@ const PlxPages = () => {
   const codingOutTime = codingStartTime + animationDuration + lingerTime;
 
   return(
-    <div>
+    <div style={{display:props.display}}>
       <Plx
         style={mainImageStyle}
         className='mainImage'

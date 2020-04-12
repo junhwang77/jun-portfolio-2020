@@ -3,7 +3,7 @@ import PlxPages from '../components/PlxPages.js'
 import LandingPage from '../components/LandingPage.js';
 
 export default function index () {
-  const[Loading, setLoading] = useState(true)
+  const[display, setDisplay] = useState('none')
 
   const docBodyStyle = {
     height: 'auto'
@@ -21,8 +21,8 @@ export default function index () {
   };
 
   useEffect(()=>{
-    wait(3000).then(()=>{
-      setLoading(false)
+    wait(3500).then(()=>{
+      setDisplay('block')
       setTimeout(()=>{
         document.getElementsByClassName('landingBg')[0] ? 
         document.getElementsByClassName('landingBg')[0].remove()
@@ -34,7 +34,7 @@ export default function index () {
   return (
     <div className='docBody' style={docBodyStyle}>
       <LandingPage/>
-      {!Loading ? <PlxPages/> : null}
+      <PlxPages display={display}/>
       <style jsx global>
         {`
           @font-face {
