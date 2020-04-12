@@ -6,6 +6,14 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <title>Jun's Portfolio Website</title>
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <meta name="og:title" content="Jun's Website"/>
+          <meta name="og:type" content="portfolio"/>
+          <meta name="og:url" content="https://junhwang.now.sh/"/>
+          <meta name="og:image" content="/web-portfolio-png/og-image.png"/>
+          <meta name="og:site_name" content="Jun's Website"/>
+          <meta name="og:description" content="I am a versatile developer, specializing in frontend development."/>
           <link rel="shortcut icon" href="/favicon.ico" />
           <link
             rel="preload"
