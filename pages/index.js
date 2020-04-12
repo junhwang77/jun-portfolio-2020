@@ -3,11 +3,8 @@ import PlxPages from '../components/PlxPages.js'
 import LandingPage from '../components/LandingPage.js';
 
 export default function index () {
-  const[display, setDisplay] = useState('none')
-
-  const docBodyStyle = {
-    height: 'auto'
-  }
+  const[displayHeight, setDisplayHeight] = useState('100vh')
+  const[displayOverflow, setDisplayOverflow] = useState('hidden')
 
   const sleep = (milliseconds) => {
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
@@ -22,7 +19,8 @@ export default function index () {
 
   useEffect(()=>{
     wait(3500).then(()=>{
-      setDisplay('block')
+      setDisplayHeight('auto')
+      setDisplayOverflow('unset')
       setTimeout(()=>{
         document.getElementsByClassName('landingBg')[0] ? 
         document.getElementsByClassName('landingBg')[0].remove()
@@ -32,9 +30,9 @@ export default function index () {
   })
 
   return (
-    <div className='docBody' style={docBodyStyle}>
+    <div className='docBody' style={{height: displayHeight, overflow: displayOverflow}}>
       <LandingPage/>
-      <PlxPages display={display}/>
+      <PlxPages/>
       <style jsx global>
         {`
           @font-face {
