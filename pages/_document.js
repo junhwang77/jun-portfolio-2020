@@ -7,14 +7,44 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <title>Jun's Portfolio Website</title>
-          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <meta name="og:title" content="Jun's Website"/>
-          <meta name="og:type" content="portfolio"/>
-          <meta name="og:url" content="https://junhwang.now.sh/"/>
-          <meta name="og:image" content="/web-portfolio-png/og-image.png"/>
-          <meta name="og:site_name" content="Jun's Website"/>
-          <meta name="og:description" content="I am a versatile developer, specializing in frontend development."/>
-          <link rel="shortcut icon" href="/favicon.ico" />
+          <meta 
+            name="viewport" 
+            content="initial-scale=1.0, width=device-width"
+            key="viewport"  
+          />
+          <meta 
+            name="og:title" 
+            content="Jun's Website"
+            key="og:title" 
+          />
+          <meta 
+            name="og:type" 
+            content="portfolio"
+            key="og:type" 
+          />
+          <meta 
+            name="og:url" 
+            content="https://junhwang.now.sh/"
+            key="og:url" 
+          />
+          <meta 
+            name="og:image" 
+            content="/web-portfolio-png/og-image.png"
+            key="og:image" 
+          />
+          <meta 
+            name="og:site_name" 
+            content="Jun's Website"
+            key="og:site_name" 
+          />
+          <meta 
+            name="og:description" 
+            content="I am a versatile developer, specializing in frontend development."
+            key="og:description" 
+          />
+          <link 
+            rel="shortcut icon" 
+            href="/favicon.ico" />
           <link
             rel="preload"
             href="/fonts/webfontkit-papyrus-korean/typo_papyrusm-webfont.woff"
