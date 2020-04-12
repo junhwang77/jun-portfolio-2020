@@ -3,3 +3,5 @@
 Built on React and Next.js: https://nextjs.org/
 
 Use `yarn` to install packages.
+
+![](portfolio-demo.gif)
