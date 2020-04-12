@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Head from 'next/head'
 import PlxPages from '../components/PlxPages.js'
 import LandingPage from '../components/LandingPage.js';
 
@@ -31,6 +32,44 @@ export default function index () {
 
   return (
     <div className='docBody' style={{height: displayHeight, overflow: displayOverflow}}>
+      <Head>
+        <title>Jun's Portfolio Website</title>
+        <meta 
+          name="viewport" 
+          content="initial-scale=1.0, width=device-width"
+          key="viewport"  
+        />
+        <meta 
+          name="og:title" 
+          content="Jun's Website"
+          key="og:title" 
+        />
+        <meta 
+          name="og:type" 
+          content="portfolio"
+          key="og:type" 
+        />
+        <meta 
+          name="og:url" 
+          content="https://junhwang.now.sh/"
+          key="og:url" 
+        />
+        <meta 
+          name="og:image" 
+          content="/web-portfolio-png/og-image.png"
+          key="og:image" 
+        />
+        <meta 
+          name="og:site_name" 
+          content="Jun's Website"
+          key="og:site_name" 
+        />
+        <meta 
+          name="og:description" 
+          content="I am a versatile developer, specializing in frontend development."
+          key="og:description" 
+        />
+      </Head>
       <LandingPage/>
       <PlxPages/>
       <style jsx global>
