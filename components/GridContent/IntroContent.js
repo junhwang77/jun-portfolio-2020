@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Grid, Container, Icon } from 'semantic-ui-react'
 import Radium from 'radium';
 
