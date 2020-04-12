@@ -141,7 +141,7 @@ const PlxPages = (props) => {
   const codingOutTime = codingStartTime + animationDuration + lingerTime;
 
   return(
-    <div style={{display:props.display}}>
+    <div style={{display:props.display, transition:"display 1s ease-in-out"}}>
       <Plx
         style={mainImageStyle}
         className='mainImage'
