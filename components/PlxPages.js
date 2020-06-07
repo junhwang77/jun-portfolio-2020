@@ -445,6 +445,11 @@ const PlxPages = (props) => {
             name: 'ProjectsAnimationIn',
             properties: [
               {
+                startValue: -1,
+                endValue: 1,
+                property: 'opacity'
+              },
+              {
                 startValue: 0,
                 endValue: -viewHeight,
                 property: 'translateY'

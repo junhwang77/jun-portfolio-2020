@@ -28,9 +28,9 @@ const projectsTitleAfter = {
 const projectsArr = [
   [
     {
-      image:"url('web-portfolio-png/ud.png')",
-      link: 'http://ec2-54-212-10-196.us-west-2.compute.amazonaws.com/',
-      info: 'User Dashboard - A simpler Facebook like application. (PHP, Codeigniter 3, MySQL, AWS EC2)'
+      image:"url('web-portfolio-png/rewardapp.png')",
+      link: 'https://reward-column-app.herokuapp.com/',
+      info: `React Drag'n Drop Toy App - (React DnD, Mongo DB Atlas, Express.js, React.js, Node.js, Sementic UI React)`
     },
     {
       image:"url('web-portfolio-png/hc.png')",
@@ -45,9 +45,9 @@ const projectsArr = [
   ],
   [
     {
-      image:"url('web-portfolio-png/vet-animals.jpg')",
-      link: 'https://www.google.com/',
-      info: 'In Progress'
+      image:"url('web-portfolio-png/ud.png')",
+      link: 'http://ec2-54-212-10-196.us-west-2.compute.amazonaws.com/',
+      info: 'User Dashboard - A simpler Facebook like application. (PHP, Codeigniter 3, MySQL, AWS EC2)'
     },
     {
       image:"url('web-portfolio-png/vet-animals.jpg')",

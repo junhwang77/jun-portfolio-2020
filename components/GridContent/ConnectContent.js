@@ -14,7 +14,7 @@ const connectArr = [
       color: 'darkgreen'
     },
     icon: 'id badge outline',
-    link: 'pdf/jun-resumeFS03252020.pdf',
+    link: 'pdf/JunHwangResume20200503.pdf',
   },
   {
     style:{
