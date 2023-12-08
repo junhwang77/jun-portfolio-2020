@@ -50,9 +50,9 @@ const projectsArr = [
       info: 'User Dashboard - A simple, Facebook like, application. (PHP, Codeigniter 3, MySQL, AWS EC2)'
     },
     {
-      image:"url('web-portfolio-png/vet-animals.jpg')",
-      link: 'https://www.google.com/',
-      info: 'In Progress'
+      image:"url('web-portfolio-png/1942Space.png')",
+      link: 'https://one942.onrender.com/',
+      info: '1942 Space Edition - A simple, 1942 like game. (HTML, CSS, JavaScript)'
     },
     {
       image:"url('web-portfolio-png/vet-animals.jpg')",
